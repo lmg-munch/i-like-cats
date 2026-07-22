@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://clqxboi28t2t5"]
+
+[ext_resource type="PackedScene" uid="uid://bmw0148o1a7dq" path="res://floor.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b463a3wgrdbw" path="res://character_body_2d.gd" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://des83hqxf1r1e" path="res://icon.svg" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://by5lrgn3m8fhl" path="res://Collectable.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://dt882fu3fposd" path="res://fall_zone.gd" id="5_lquwl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5bw23"]
+radius = 6.2999997
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bw23"]
+
+[node name="Main" type="Node2D" unique_id=563164705]
+
+[node name="Floor" parent="." unique_id=1590502050 instance=ExtResource("1_ig7tw")]
+position = Vector2(576.00006, 635)
+scale = Vector2(29.16862, 0.10667932)
+
+[node name="Floor2" parent="." unique_id=1322003993 instance=ExtResource("1_ig7tw")]
+position = Vector2(-395, 269)
+scale = Vector2(4.0747447, 5.7709675)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=53723960]
+position = Vector2(75, 452)
+script = ExtResource("2_h2yge")
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=1037079652]
+texture = ExtResource("3_1bvp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=25939170]
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_5bw23")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2119894496]
+
+[node name="Collectable" parent="." unique_id=1950892169 instance=ExtResource("4_1bvp3")]
+position = Vector2(285, 434)
+
+[node name="fall zone" type="Area2D" parent="." unique_id=287210734]
+position = Vector2(-12, 771)
+script = ExtResource("5_lquwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fall zone" unique_id=1741290280]
+scale = Vector2(500, 10)
+shape = SubResource("RectangleShape2D_5bw23")
+
+[connection signal="body_entered" from="fall zone" to="fall zone" method="_on_body_entered"]
