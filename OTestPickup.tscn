@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b6g84t8hly28a"]
+
+[ext_resource type="Script" uid="uid://cgmfilkqqgpg4" path="res://PickupTest.torch" id="1_neajt"]
+[ext_resource type="Texture2D" uid="uid://des83hqxf1r1e" path="res://icon.svg" id="2_lllh2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_facdw"]
+radius = 88.0
+
+[node name="Area2D" type="Area2D" unique_id=276765922]
+script = ExtResource("1_neajt")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1092798327]
+texture = ExtResource("2_lllh2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=230427646]
+shape = SubResource("CircleShape2D_facdw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

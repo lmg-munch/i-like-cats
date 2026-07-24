@@ -1,0 +1,100 @@
+[orchestration type="OScript" load_steps=6 format=4 uid="uid://b0wjl82mpwurg"]
+
+[obj type="OScriptFunction" id="OScriptFunction_5bw23"]
+guid = "BF4B54AA-0408-431C-B902-7D1AD4A23F0A"
+method = {
+"name": &"_on_body_entered",
+"args": [{
+"name": &"body",
+"type": 24,
+"class_name": &"Node2D"
+}]
+}
+id = 0
+
+[obj type="OScriptGraph" id="OScriptGraph_10o0e"]
+graph_name = &"EventGraph"
+flags = 8
+nodes = Array[int]([0, 1, 2])
+functions = Array[int]([0])
+
+[obj type="OScriptNodeEvent" id="OScriptNodeEvent_facdw"]
+function_id = "BF4B54AA-0408-431C-B902-7D1AD4A23F0A"
+id = 0
+position = Vector2(-80, 860)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecOut",
+"dir": 1,
+"flags": 4
+}, {
+"pin_name": &"body",
+"type": 24,
+"dir": 1,
+"flags": 2,
+"target_class": "Node2D"
+}])
+
+[obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_xbawl"]
+function_name = &"call_deferred"
+target_class_name = "Object"
+target_type = 24
+flags = 552
+method = {
+"name": &"call_deferred",
+"return": {
+"usage": 131078
+},
+"flags": 17,
+"args": [{
+"name": &"method",
+"type": 21
+}]
+}
+variable_arg_count = 0
+chain = false
+id = 1
+size = Vector2(230, 159)
+position = Vector2(360, 860)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecIn",
+"flags": 4
+}, {
+"pin_name": &"target",
+"type": 24,
+"flags": 2050,
+"label": "Object",
+"target_class": "Object"
+}, {
+"pin_name": &"method",
+"type": 21,
+"flags": 2,
+"dv": "reload_current_scene"
+}, {
+"pin_name": &"ExecOut",
+"dir": 1,
+"flags": 4
+}, {
+"pin_name": &"return_value",
+"dir": 1,
+"flags": 1026,
+"usage": 131078
+}])
+
+[obj type="OScriptNodeSceneTree" id="OScriptNodeSceneTree_272bh"]
+id = 2
+position = Vector2(160, 920)
+pin_data = Array[Dictionary]([{
+"pin_name": &"scene_tree",
+"type": 24,
+"dir": 1,
+"flags": 2,
+"target_class": "SceneTree"
+}])
+
+[resource]
+base_type = &"Node"
+description = "Base template for Node with default Godot cycle methods."
+functions = Array[OScriptFunction]([SubResource("OScriptFunction_5bw23")])
+connections = Array[int]([0, 0, 1, 0, 2, 0, 1, 1])
+nodes = Array[OScriptNode]([SubResource("OScriptNodeEvent_facdw"), SubResource("OScriptNodeCallMemberFunction_xbawl"), SubResource("OScriptNodeSceneTree_272bh")])
+graphs = Array[OScriptGraph]([SubResource("OScriptGraph_10o0e")])

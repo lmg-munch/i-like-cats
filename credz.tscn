@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dslbcfyudvc45"]
+
+[ext_resource type="Script" uid="uid://m5351lwbyl4c" path="res://button.gd" id="1_3rxu4"]
+
+[node name="Credz" type="Control" unique_id=1167971330]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=330093430]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=1774517668]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer" unique_id=1650680211]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=1629374585]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=1611572127]
+layout_mode = 2
+text = "THANK YOU FOR PLAYING!!!
+HAVE A GOOD DAYYYYYYYY
+-Victoria
+(Press to resume :)"
+alignment = 2
+script = ExtResource("1_3rxu4")
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/Button" to="MarginContainer/CenterContainer/VBoxContainer/Button" method="_on_pressed"]

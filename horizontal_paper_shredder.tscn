@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dg32s8iqkbw2b"]
+
+[ext_resource type="Script" uid="uid://c5so8ha8nfuwg" path="res://horizontal_paper_shredder.torch" id="1_2ey4y"]
+[ext_resource type="Texture2D" uid="uid://des83hqxf1r1e" path="res://icon.svg" id="2_2ey4y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5bw23"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5bw23"]
+radius = 49.0
+height = 98.0
+
+[node name="Horizontal Paper Shredder" type="CharacterBody2D" unique_id=2027251062]
+script = ExtResource("1_2ey4y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=459723346]
+shape = SubResource("CircleShape2D_5bw23")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1449623146]
+texture = ExtResource("2_2ey4y")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=495346809]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=249376684]
+shape = SubResource("CapsuleShape2D_5bw23")

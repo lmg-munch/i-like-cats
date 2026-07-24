@@ -1,48 +1,349 @@
 [gd_scene format=3 uid="uid://clqxboi28t2t5"]
 
-[ext_resource type="PackedScene" uid="uid://bmw0148o1a7dq" path="res://floor.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://b463a3wgrdbw" path="res://character_body_2d.gd" id="2_h2yge"]
-[ext_resource type="Texture2D" uid="uid://des83hqxf1r1e" path="res://icon.svg" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://by5lrgn3m8fhl" path="res://Collectable.tscn" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://dt882fu3fposd" path="res://fall_zone.gd" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://c3eans2pejr64" path="res://Character Frames/Catz idle.png" id="3_5vw27"]
+[ext_resource type="Texture2D" uid="uid://dkivau1erjqad" path="res://Character Frames/Catz Fall.png" id="4_dg77c"]
+[ext_resource type="Texture2D" uid="uid://kvxy743b08v6" path="res://Character Frames/Catz Jump.png" id="5_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://b6g84t8hly28a" path="res://OTestPickup.tscn" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://3ejb2388s1qq" path="res://Character Frames/Catz Run Frame 1.png" id="6_w48qg"]
+[ext_resource type="PackedScene" uid="uid://c3r07p2otb61" path="res://passive_enemy.tscn" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://bih3bsoqtpbkg" path="res://Character Frames/Catz Run Frame 2.png" id="7_vivmo"]
+[ext_resource type="Script" uid="uid://spahgq550see" path="res://visible_on_screen_notifier_2d.torch" id="8_efxa6"]
+[ext_resource type="Texture2D" uid="uid://8xmvgt05xvgy" path="res://Character Frames/Catz TV.png" id="8_w48qg"]
+[ext_resource type="Script" uid="uid://bfm4db2jxsqq4" path="res://collectable.gd" id="10_ycdy4"]
+[ext_resource type="Script" uid="uid://du3jd4425yy1b" path="res://credz_button_to_credz.gd" id="12_dg77c"]
+[ext_resource type="Texture2D" uid="uid://crywfedy1hhda" path="res://Character Frames/Catz Block.png" id="12_ycdy4"]
+[ext_resource type="Script" uid="uid://bw80h6484lf8g" path="res://score_count.gd" id="13_w48qg"]
+[ext_resource type="Script" uid="uid://chln6ve2uovp1" path="res://parallax_2d.torch" id="13_ycdy4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = ExtResource("3_5vw27")
+region = Rect2(0, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cqfq"]
+atlas = ExtResource("4_dg77c")
+region = Rect2(0, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaehf"]
+atlas = ExtResource("5_ycdy4")
+region = Rect2(0, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_074og"]
+atlas = ExtResource("6_w48qg")
+region = Rect2(0, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cegan"]
+atlas = ExtResource("7_vivmo")
+region = Rect2(0, 0, 600, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5bw23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vw27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cqfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaehf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_074og")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cegan")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5bw23"]
-radius = 6.2999997
+radius = 2.590705
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_facdw"]
+size = Vector2(3830, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ji7sy"]
+size = Vector2(29, 2154)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5bw23"]
+size = Vector2(375, 134)
 
 [node name="Main" type="Node2D" unique_id=563164705]
 
-[node name="Floor" parent="." unique_id=1590502050 instance=ExtResource("1_ig7tw")]
-position = Vector2(576.00006, 635)
-scale = Vector2(29.16862, 0.10667932)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2119894496]
+position = Vector2(3136, 2346)
+scale = Vector2(2, 2)
+zoom = Vector2(0.3, 0.3)
 
-[node name="Floor2" parent="." unique_id=1322003993 instance=ExtResource("1_ig7tw")]
-position = Vector2(-395, 269)
-scale = Vector2(4.0747447, 5.7709675)
+[node name="CatzTv" type="Sprite2D" parent="." unique_id=120102767]
+position = Vector2(3140, 2345.0002)
+scale = Vector2(2.9906251, 2.1877553)
+texture = ExtResource("8_w48qg")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=53723960]
-position = Vector2(75, 452)
+position = Vector2(3115, 2049)
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("2_h2yge")
 
-[node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=1037079652]
-texture = ExtResource("3_1bvp3")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1401800250]
+position = Vector2(2.5, 112)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_5bw23")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D/AnimatedSprite2D" unique_id=302968727]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=25939170]
-scale = Vector2(10, 10)
+position = Vector2(2.5000005, 146)
+scale = Vector2(10, 5)
 shape = SubResource("CircleShape2D_5bw23")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2119894496]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="CharacterBody2D" unique_id=1210125954]
+position = Vector2(13, 68)
+scale = Vector2(0.5, 0.5)
+rect = Rect2(-49, -30, 59, 40)
+script = ExtResource("8_efxa6")
 
-[node name="Collectable" parent="." unique_id=1950892169 instance=ExtResource("4_1bvp3")]
-position = Vector2(285, 434)
+[node name="Yarn Pickup" parent="." unique_id=276765922 instance=ExtResource("6_7mycd")]
+position = Vector2(1372, 1433)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("10_ycdy4")
 
-[node name="fall zone" type="Area2D" parent="." unique_id=287210734]
-position = Vector2(-12, 771)
-script = ExtResource("5_lquwl")
+[node name="Yarn Pickup2" parent="." unique_id=48672597 instance=ExtResource("6_7mycd")]
+position = Vector2(4884, 1433)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("10_ycdy4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="fall zone" unique_id=1741290280]
-scale = Vector2(500, 10)
+[node name="Yarn Pickup3" parent="." unique_id=515362004 instance=ExtResource("6_7mycd")]
+position = Vector2(4918, 3249)
+collision_mask = 2
+script = ExtResource("10_ycdy4")
+
+[node name="Yarn Pickup4" parent="." unique_id=354728814 instance=ExtResource("6_7mycd")]
+position = Vector2(1376, 3270)
+collision_mask = 2
+script = ExtResource("10_ycdy4")
+
+[node name="Paper Shredder" parent="." unique_id=1853012319 instance=ExtResource("7_272bh")]
+position = Vector2(-213, 723)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1495311330]
+layer = 0
+
+[node name="Parallax2D" type="Parallax2D" parent="CanvasLayer" unique_id=1963730314]
+scroll_offset = Vector2(-232, -228)
+script = ExtResource("13_ycdy4")
+
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=250682255]
+position = Vector2(3017, 1284)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=937858784]
+position = Vector2(120, 3)
+shape = SubResource("RectangleShape2D_facdw")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=636845148]
+position = Vector2(3017, 1284)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1414934254]
+position = Vector2(120, 2126)
+shape = SubResource("RectangleShape2D_facdw")
+
+[node name="Wall_r" type="StaticBody2D" parent="." unique_id=1770836518]
+position = Vector2(5058, 1318)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_r" unique_id=804311581]
+position = Vector2(5.5, 1032)
+shape = SubResource("RectangleShape2D_ji7sy")
+
+[node name="Wall_L" type="StaticBody2D" parent="." unique_id=2003025055]
+position = Vector2(1225, 1325)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_L" unique_id=670209322]
+position = Vector2(5.5, 1032)
+shape = SubResource("RectangleShape2D_ji7sy")
+
+[node name="credz button" type="Button" parent="." unique_id=1840789498]
+offset_left = 2833.0
+offset_top = 1289.0
+offset_right = 3441.0
+offset_bottom = 1410.0
+theme_override_font_sizes/font_size = 64
+text = "Credz
+"
+script = ExtResource("12_dg77c")
+
+[node name="CatzJump" type="Sprite2D" parent="." unique_id=59969530]
+position = Vector2(1372, 1387)
+scale = Vector2(1.5583333, 1.3666667)
+texture = ExtResource("5_ycdy4")
+
+[node name="CatzJump2" type="Sprite2D" parent="." unique_id=1841629533]
+position = Vector2(4906.0005, 3220)
+scale = Vector2(1.5583333, 1.3666667)
+texture = ExtResource("5_ycdy4")
+
+[node name="CatzJump3" type="Sprite2D" parent="." unique_id=65033784]
+position = Vector2(4878.0005, 1401)
+scale = Vector2(1.5583333, 1.3666667)
+texture = ExtResource("5_ycdy4")
+
+[node name="CatzJump4" type="Sprite2D" parent="." unique_id=978528040]
+position = Vector2(1367, 3220)
+scale = Vector2(1.5583333, 1.3666667)
+texture = ExtResource("5_ycdy4")
+
+[node name="ScoreCount" type="Label" parent="." unique_id=1457810499]
+top_level = true
+z_index = 1000
+offset_left = 2426.0
+offset_top = 1417.0
+offset_right = 3865.0
+offset_bottom = 1596.0
+theme_override_font_sizes/font_size = 64
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_w48qg")
+
+[node name="Timer" type="Timer" parent="." unique_id=893012642]
+wait_time = 5.0
+one_shot = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1840870745]
+position = Vector2(4283, 2837)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=916942106]
+position = Vector2(6, 5)
+scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_5bw23")
 
-[connection signal="body_entered" from="fall zone" to="fall zone" method="_on_body_entered"]
+[node name="CatzBlock" type="Sprite2D" parent="StaticBody2D" unique_id=1607544855]
+position = Vector2(12, 8)
+scale = Vector2(2, 0.8)
+texture = ExtResource("12_ycdy4")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1205145700]
+position = Vector2(3143, 2833)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1943628649]
+position = Vector2(6, 5)
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_5bw23")
+
+[node name="CatzBlock" type="Sprite2D" parent="StaticBody2D2" unique_id=612932407]
+position = Vector2(12, 8)
+scale = Vector2(2, 0.8)
+texture = ExtResource("12_ycdy4")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=489956277]
+position = Vector2(2073, 2812)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=711177944]
+position = Vector2(6, 5)
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_5bw23")
+
+[node name="CatzBlock" type="Sprite2D" parent="StaticBody2D3" unique_id=265660918]
+position = Vector2(12, 8)
+scale = Vector2(2, 0.8)
+texture = ExtResource("12_ycdy4")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=580111188]
+position = Vector2(3109, 1876)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1358886002]
+position = Vector2(6, 5)
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_5bw23")
+
+[node name="CatzBlock" type="Sprite2D" parent="StaticBody2D4" unique_id=1715790678]
+position = Vector2(12, 8)
+scale = Vector2(2, 0.8)
+texture = ExtResource("12_ycdy4")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=493635180]
+position = Vector2(2466, 2285)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=1449610875]
+position = Vector2(6, 5)
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_5bw23")
+
+[node name="CatzBlock" type="Sprite2D" parent="StaticBody2D5" unique_id=1805233655]
+position = Vector2(12, 8)
+scale = Vector2(2, 0.8)
+texture = ExtResource("12_ycdy4")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=2085550830]
+position = Vector2(3773, 2306)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=2092503836]
+position = Vector2(6, 5)
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_5bw23")
+
+[node name="CatzBlock" type="Sprite2D" parent="StaticBody2D6" unique_id=1277306550]
+position = Vector2(12, 8)
+scale = Vector2(2, 0.8)
+texture = ExtResource("12_ycdy4")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="." unique_id=932380417]
+position = Vector2(4380, 1886)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7" unique_id=1086811769]
+position = Vector2(6, 5)
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_5bw23")
+
+[node name="CatzBlock" type="Sprite2D" parent="StaticBody2D7" unique_id=552942058]
+position = Vector2(12, 8)
+scale = Vector2(2, 0.8)
+texture = ExtResource("12_ycdy4")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="." unique_id=9202447]
+position = Vector2(1853, 1886)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8" unique_id=761229492]
+position = Vector2(6, 5)
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_5bw23")
+
+[node name="CatzBlock" type="Sprite2D" parent="StaticBody2D8" unique_id=843973567]
+position = Vector2(12, 8)
+scale = Vector2(2, 0.8)
+texture = ExtResource("12_ycdy4")
+
+[connection signal="animation_started" from="CharacterBody2D/AnimatedSprite2D/AnimationPlayer" to="CharacterBody2D" method="_on_animation_player_animation_started"]
+[connection signal="current_animation_changed" from="CharacterBody2D/AnimatedSprite2D/AnimationPlayer" to="CharacterBody2D" method="_on_animation_player_current_animation_changed"]
+[connection signal="draw" from="CanvasLayer/Parallax2D" to="CanvasLayer/Parallax2D" method="_on_draw"]
+[connection signal="pressed" from="credz button" to="credz button" method="_on_pressed"]
