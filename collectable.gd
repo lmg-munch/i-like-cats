@@ -16,6 +16,8 @@ func _on_body_entered(body: Node2D) -> void:
 		GlobalScore.GlobalScoreYarn += 1
 		GlobalScore.CollectableAmount.emit()
 		CanGetPoint = false
+		visible = false
 		timer.start()
 		await timer.timeout
 		CanGetPoint = true
+		visible = true

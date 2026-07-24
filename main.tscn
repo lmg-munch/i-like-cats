@@ -186,26 +186,6 @@ text = "Credz
 "
 script = ExtResource("12_dg77c")
 
-[node name="CatzJump" type="Sprite2D" parent="." unique_id=59969530]
-position = Vector2(1372, 1387)
-scale = Vector2(1.5583333, 1.3666667)
-texture = ExtResource("5_ycdy4")
-
-[node name="CatzJump2" type="Sprite2D" parent="." unique_id=1841629533]
-position = Vector2(4906.0005, 3220)
-scale = Vector2(1.5583333, 1.3666667)
-texture = ExtResource("5_ycdy4")
-
-[node name="CatzJump3" type="Sprite2D" parent="." unique_id=65033784]
-position = Vector2(4878.0005, 1401)
-scale = Vector2(1.5583333, 1.3666667)
-texture = ExtResource("5_ycdy4")
-
-[node name="CatzJump4" type="Sprite2D" parent="." unique_id=978528040]
-position = Vector2(1367, 3220)
-scale = Vector2(1.5583333, 1.3666667)
-texture = ExtResource("5_ycdy4")
-
 [node name="ScoreCount" type="Label" parent="." unique_id=1457810499]
 top_level = true
 z_index = 1000

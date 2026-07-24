@@ -77,7 +77,7 @@ pin_data = Array[Dictionary]([{
 title = "Collect the yarn and add 1 to the level count"
 attached_nodes = PackedInt64Array(6, 7, 15, 17, 11, 18, 16, 22, 23, 24)
 id = 9
-size = Vector2(1977.000244140625, 363.0000305175781)
+size = Vector2(1977, 363)
 position = Vector2(-980, 140)
 
 [obj type="OScriptNodePromotableOperator" id="OScriptNodePromotableOperator_5vw27"]
